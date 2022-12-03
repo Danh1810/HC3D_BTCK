@@ -1,4 +1,4 @@
-package com.example.loginsingup;
+package com.example.loginsingup.Model;
 
 public class model {
 

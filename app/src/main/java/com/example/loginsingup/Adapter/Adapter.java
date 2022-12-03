@@ -1,8 +1,7 @@
-package com.example.loginsingup;
+package com.example.loginsingup.Adapter;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.loginsingup.R;
+import com.example.loginsingup.Model.model;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,8 +27,6 @@ import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.namespace.QName;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -113,10 +112,10 @@ public class Adapter extends FirebaseRecyclerAdapter<model,Adapter.myviewHolder>
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.masp.getContext());
-                builder.setTitle("Are you Sure?");
-                builder.setMessage("Deleted data can't be Undo.");
+                builder.setTitle("Bạn có muốn xoá?");
+                builder.setMessage("xoá không thành công.");
 
-                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Xoá", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         FirebaseDatabase.getInstance().getReference().child("sanpham")

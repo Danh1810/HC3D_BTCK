@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.loginsingup.Admin.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -45,7 +46,13 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                perforLogin();
+                if(Imail.getText().toString().equals("admin") && Password.getText().toString().equals("123")){
+                    Toast.makeText(LoginActivity.this,"Login Thanh cong",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                }
+                else
+                    perforLogin();
             }
         });
         register.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void sendUserTonextActivity() {
-        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeSP">
+    tools:context=".User.CartActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BÁN ĐỒ CÔNG NGHỆ"
+            android:text="Giỏ hàng"
             android:layout_gravity="center"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -25,31 +25,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:padding="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mua sắm các mặt hàng thông qua ứng dụng.."
-            android:textSize="17sp"/>
-
-        <SearchView
-            android:id="@+id/searchViewMainUser"
-            android:queryHint="Search here..."
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_radius_search"
-            android:layout_marginVertical="10dp"
-            android:iconifiedByDefault="false"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
+            android:text="Các mặt hàng đã thêm"/>
     </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

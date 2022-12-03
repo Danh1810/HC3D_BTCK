@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/drawable/border_radius_search.xml" value="0.106" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/activity_addactibity.xml" value="0.209375" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/activity_cart.xml" value="0.209375" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/activity_details_model.xml" value="0.209375" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/cart_item.xml" value="0.209375" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/fragment_home_s_p.xml" value="0.209375" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/item_category.xml" value="0.209375" />
+        <entry key="..\:/HC3D_BTCK/app/src/main/res/layout/item_subj.xml" value="0.209375" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/HC3D_BTCK/app/src/main/res/drawable/ic_baseline_back_hand_24.xml" value="0.2315" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/HC3D_BTCK/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/HC3D_BTCK/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />

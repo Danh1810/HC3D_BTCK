@@ -1,6 +1,8 @@
-package com.example.loginsingup.Model;
+package com.example.loginsingup;
 
-public class model {
+import java.io.Serializable;
+
+public class model implements Serializable {
 
     String masp,tensp,gia,surl;
 

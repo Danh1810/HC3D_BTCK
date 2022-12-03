@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(Imail.getText().toString().equals("admin") && Password.getText().toString().equals("123")){
                     Toast.makeText(LoginActivity.this,"Login Thanh cong",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
                 else
@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void sendUserTonextActivity() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

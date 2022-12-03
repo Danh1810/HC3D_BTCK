@@ -1,64 +1,123 @@
 package com.example.loginsingup;
 
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.example.loginsingup.Category.Category;
+import com.example.loginsingup.Category.CategoryAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.example.loginsingup.Category.Category;
+import com.example.loginsingup.Category.CategoryAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeSP#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeSP extends Fragment {
+    private RecyclerView rvCategory;
+    private CategoryAdapter categoryAdapter;
+    private SearchView searchViewMainUser;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    List<model> listModel = new ArrayList<>();
 
     public HomeSP() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeSP.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeSP newInstance(String param1, String param2) {
-        HomeSP fragment = new HomeSP();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_s_p, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_s_p, container, false);
+        searchViewMainUser = view.findViewById(R.id.searchViewMainUser);
+
+        searchViewMainUser.clearFocus();
+
+        //recycleview danh sach san pham
+        rvCategory= view.findViewById(R.id.rv_category);
+        categoryAdapter =new CategoryAdapter(getActivity());
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL,false);
+        rvCategory.setLayoutManager(linearLayoutManager);
+
+        categoryAdapter.setData(getListCategory());
+
+        rvCategory.setAdapter(categoryAdapter);
+        return view;
+
+
+    }
+
+    private List<Category> getListCategory() {
+        List<Category> listCategory = new ArrayList<>();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("sanpham");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ss : snapshot.getChildren()) {
+                    model m = ss.getValue(model.class);
+                    listModel.add(new model(
+                            m.getMasp(),
+                            m.getTensp(),
+                            m.getGia(),
+                            m.getSurl()
+                    ));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+        listCategory.add(new Category("Điện thoại",listModel));
+        listCategory.add(new Category("Laptop",listModel));
+        listCategory.add(new Category("Đồng hồ",listModel));
+        listCategory.add(new Category("Khác",listModel));
+
+
+        return listCategory;
     }
 }

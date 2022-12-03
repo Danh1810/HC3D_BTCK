@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeSP">
+    tools:context=".HomeSP"
+    android:background="@drawable/backgr">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,6 +47,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_category"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

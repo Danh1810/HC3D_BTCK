@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private void txtSearch(String str){
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("sanpham").orderByChild("masp").startAt(str).endAt(str+"~"),model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("sanpham").orderByChild("tensp").startAt(str).endAt(str+"~"),model.class)
                         .build();
 
         adapter = new Adapter(options);

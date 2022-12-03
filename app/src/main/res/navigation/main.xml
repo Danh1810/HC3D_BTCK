@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeSP2">
+    app:startDestination="@id/Trangchu">
 
     <fragment
-        android:id="@+id/homeSP2"
+        android:id="@+id/Trangchu"
         android:name="com.example.loginsingup.HomeSP"
         android:label="home_s_p"
         tools:layout="@layout/fragment_home_s_p" />
@@ -25,5 +25,10 @@
         android:name="com.example.loginsingup.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <activity
+        android:id="@+id/loginActivity2"
+        android:name="com.example.loginsingup.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 
 </navigation>

@@ -16,7 +16,14 @@
         android:theme="@style/Theme.Loginsingup"
         tools:targetApi="31">
         <activity
-            android:name=".addactibity"
+            android:name=".Main"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Admin.addactibity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -24,6 +31,9 @@
         </activity>
         <activity
             android:name=".Singup"
+            android:exported="true" />
+        <activity
+            android:name=".HomeActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
@@ -35,8 +45,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:name=".Admin.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
